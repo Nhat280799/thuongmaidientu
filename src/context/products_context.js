@@ -22,18 +22,19 @@ const ProductsContext = React.createContext()
 export const ProductsProvider = ({ children }) => {
   const [state,dispatch] = useReducer(reducer,initialState,);
 
-  const openSiderbar =  () => {
-    dispatch({type:SIDEBAR_OPEN})
+  const openSidebar = () => {
+    dispatch({ type: SIDEBAR_OPEN })
   }
-
-  const closeSiderbar =  () => {
-    dispatch({type: SIDEBAR_CLOSE})
+  const closeSidebar = () => {
+    dispatch({ type: SIDEBAR_CLOSE })
   }
 
 
   return (
     <ProductsContext.Provider value={{
-      ...state , openSiderbar , closeSiderbar
+      ...state,
+        openSidebar,
+        closeSidebar,
     }}>
       {children}
     </ProductsContext.Provider>
