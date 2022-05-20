@@ -23,7 +23,10 @@ const products_reducer = (state, action) => {
     const featured_products = action.payload.filter(
       (product) => product.featured === true
     )
-    return {...state,products_loading:false,product : action.payload , 
+    return {
+      ...state,
+      products_loading:false,
+      products : action.payload , 
       featured_products : featured_products}
   }
   if(action.type === GET_PRODUCTS_ERROR){
@@ -52,3 +55,17 @@ const products_reducer = (state, action) => {
 }
 
 export default products_reducer
+
+
+
+
+
+
+
+
+
+
+
+
+
+
