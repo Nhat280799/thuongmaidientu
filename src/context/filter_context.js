@@ -18,7 +18,7 @@ const initialState = {
   grid_view : false,
   sort : 'price-lowest',
   filters : { 
-    text : 'ccc',
+    text : '',
     company : 'all',
     category : 'all',
     color : 'all',
@@ -63,7 +63,12 @@ export const FilterProvider = ({ children }) => {
   const updateFilters = (e) => {
     let name = e.target.name;
     let value = e.target.value;
-    console.log(name,value);
+    if(name === "category"){
+      value = e.target.textContent;
+    }
+    if(name === 'color'){
+      value = e.target.dataset.color
+    }
     dispatch({ type: UPDATE_FILTERS, payload: { name, value } })
   }
 
